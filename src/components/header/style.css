@@ -1,0 +1,42 @@
+.header {
+  background-color: #fff;
+  height: 76px;
+  text-align: right;
+  padding-top: 16px;
+}
+.header-add {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  margin-right: 16px;
+  padding: 11px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+
+  background-color: rgba(242, 242, 247, 1);
+  color: rgba(0, 0, 0, 1);
+}
+
+.header-exit {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-right: 24px;
+  padding: 11px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  background-color: rgba(242, 242, 247, 1);
+  color: rgba(0, 0, 0, 1);
+}
+.header-add:hover {
+  color: rgba(255, 255, 255, 1);
+  background: linear-gradient(136.66deg, #00a5ee 1.58%, #14d7d1 96.24%);
+}
+.header-exit:hover {
+  color: rgba(255, 255, 255, 1);
+  background: linear-gradient(136.66deg, #00a5ee 1.58%, #14d7d1 96.24%);
+}
