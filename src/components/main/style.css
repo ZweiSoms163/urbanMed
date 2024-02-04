@@ -5,7 +5,7 @@
   background-color: rgba(247, 252, 254, 1);
 }
 .main-table {
-  max-width: 984px;
+  width: 984px; /* надо подогнать верстку */
   border-collapse: collapse;
   background-color: rgba(255, 255, 255, 1);
 }

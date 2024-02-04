@@ -1,0 +1,178 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes darkenBackground {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.32);
+  }
+}
+
+@keyframes lightenBackground {
+  from {
+    background-color: rgba(0, 0, 0, 0.32);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+.modal-overlay.dark {
+  animation-name: darkenBackground;
+}
+
+.modal-overlay.light {
+  animation-name: lightenBackground;
+}
+
+.modal-content {
+  animation-name: modalFadeIn;
+  animation-duration: 1s;
+}
+@keyframes modalFadeIn {
+  from {
+    transform: translate(-50%, 90%);
+  }
+  to {
+    transform: translate(-50%, -50%);
+  }
+}
+
+.modal-content.closed {
+  animation-name: modalFadeOut;
+  animation-duration: 1s;
+}
+@keyframes modalFadeOut {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, 90%);
+  }
+}
+.AddPerson {
+  padding: 0 24px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+
+  width: 600px;
+
+  border-radius: 16px;
+}
+
+.AddPerson-head {
+  display: flex;
+  justify-content: space-between;
+  margin: 24px 0px;
+}
+.AddPerson-close {
+  cursor: pointer;
+}
+.AddPerson-input-group {
+  display: flex;
+  flex-direction: column;
+}
+.AddPerson-input-group input {
+  border: none;
+  outline: 0;
+  border-bottom: 1px solid #e5e5ea;
+  margin-bottom: 33px;
+  font-size: 16px;
+  color: #000000;
+  line-height: 22px;
+}
+.AddPerson-placeholder {
+  color: #aeaeb2;
+  font-size: 13px;
+  padding-bottom: 4px;
+  font-weight: 400;
+  line-height: 13px;
+}
+
+.AddPerson-btn-group {
+  text-align: center;
+  border-radius: 10px;
+  padding: 3px;
+  background-color: #f2f2f7;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 500;
+  margin: 0 auto;
+  max-width: 347px;
+  max-height: 50px;
+  margin-bottom: 25px;
+}
+
+.AddPerson-toggle-switch__radio {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.AddPerson-toggle-switch__label {
+  display: inline-flex;
+  padding: 6px 50px;
+  user-select: none;
+  color: #8e8e93;
+  cursor: pointer;
+}
+
+.AddPerson-toggle-switch__option:first-child .AddPerson-toggle-switch__label {
+  border-radius: 8px;
+}
+
+.AddPerson-toggle-switch__option:last-child .AddPerson-toggle-switch__label {
+  border-radius: 8px;
+}
+
+.AddPerson-toggle-switch__radio:checked + .AddPerson-toggle-switch__label {
+  color: #000000;
+  background-color: #ffffff;
+}
+.AddPerson-saveBtn {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  margin-right: 16px;
+  padding: 11px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  color: rgba(255, 255, 255, 1);
+  background: linear-gradient(136.66deg, #00a5ee 1.58%, #14d7d1 96.24%);
+  max-width: 600px;
+  width: 100%;
+  margin-bottom: 24px;
+}
+.AddPerson-control-btn {
+  display: flex;
+}
+.AddPerson-deleteBtn {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  margin-right: 12px;
+  height: 44px;
+  border-radius: 8px;
+  padding: 12px;
+}
