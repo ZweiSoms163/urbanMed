@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { RootState } from '../store';
 import { User } from '../types';
+import { addUserToUserList } from './AddPersonSlice';
 
 interface UserState {
   userList: User[];
@@ -25,7 +26,7 @@ export const fetchUsers = createAsyncThunk<User[], string, { rejectValue: string
 
     try {
       const response = await axios.get(
-        `https://randomuser.me/api/?seed=${seed}&results=10&inc=gender,name,email`,
+        `https://randomuser.me/api/?seed=${seed}&results=50&inc=gender,name,email`,
       );
       return response.data.results;
     } catch (error) {
@@ -51,6 +52,9 @@ const userSlice = createSlice({
         state.loading = 'failed';
         state.error = action.payload ? action.payload : 'Failed to fetch users';
         console.error('Error fetching users:', state.error);
+      })
+      .addCase(addUserToUserList, (state, action) => {
+        state.userList.unshift(action.payload);        
       });
   },
 });

@@ -1,11 +1,10 @@
-import { selectUserList } from '../../redux/slices/UserSlice';
-import './style.css';
-import { useSelector } from 'react-redux';
+import { selectUserList } from "../../redux/slices/UserSlice";
+import "./style.css";
+import { useSelector } from "react-redux";
 
 export default function Item() {
-   const userList = useSelector(selectUserList);
-
-   console.log(userList);
+  const userList = useSelector(selectUserList);
+  console.log("Current user list:", userList);
 
   return (
     <>
@@ -24,7 +23,7 @@ export default function Item() {
         ))
       ) : (
         <tr>
-          <td>Null</td>
+          <td>Загрузка...</td>
         </tr>
       )}
     </>
