@@ -7,7 +7,7 @@ import { addUserToUserList } from './AddPersonSlice';
 interface UserState {
   userList: User[];
   loading: 'idle' | 'loading' | 'succeeded' | 'failed';
-  error: string | null;
+  error: string | null | undefined;
 }
 
 const initialState: UserState = {
@@ -15,7 +15,6 @@ const initialState: UserState = {
   loading: 'idle',
   error: null,
 };
-
 export const fetchUsers = createAsyncThunk<User[], string, { rejectValue: string }>(
   'users/fetchUsers',
   async (seed, { rejectWithValue }) => {
@@ -58,6 +57,7 @@ const userSlice = createSlice({
       });
   },
 });
+
 
 export const selectUserList = (state: RootState) => state.users.userList;
 export const selectUserLoadingStatus = (state: RootState) => state.users.loading;

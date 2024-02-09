@@ -13,7 +13,7 @@ export interface ModalState {
   isModalOpen: boolean;
   users: User[]; 
   currentGender: '',
-  
+
 }
 
 export interface Name {
@@ -29,4 +29,5 @@ export interface User {
     last: string;
   };
   email: string;
+  isNew: boolean 
 }

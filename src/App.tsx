@@ -1,9 +1,10 @@
-import './App.css';
-import Authorization from './components/authorization';
-import Main from './components/main';
-import AddPeson from './components/addPerson';
-import EditPerson from './components/editPerson/index';
-import { Route, Routes } from 'react-router-dom';
+import "./App.css";
+import Authorization from "./components/authorization";
+import Main from "./components/main";
+import AddPeson from "./components/addPerson";
+import EditPerson from "./components/editPerson";
+
+import { Route, Routes } from "react-router-dom";
 function App() {
   return (
     <div className="App">
@@ -34,4 +35,5 @@ export default App;
 }      как пример для понимания 
 2. Возможно не совсем корректно реализована анимация закрытия модалки, т.к. пришлось оборачивать в setTimeout для того, чтобы анимация успела сработать, 
 а не сразу tsx исчезал по isOpen = false 
+3. после полностью готового функц. распределить на составляющие код, так как многий функц. можно вынести в отдельный компонент
 */

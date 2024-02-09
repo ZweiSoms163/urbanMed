@@ -11,10 +11,20 @@
   outline: none;
   border-radius: 15.48px;
   padding: 2.79px 10.5px;
-  color: rgba(168, 168, 168, 1);
-  background-color: rgba(242, 242, 247, 1);
-}
-.item-btn:hover {
   color: rgba(255, 255, 255, 1);
   background: linear-gradient(136.66deg, #00a5ee 1.58%, #14d7d1 96.24%);
 }
+.item-btn-dis {
+  color: rgba(168, 168, 168, 1);
+  background-color: rgba(242, 242, 247, 1);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  border-radius: 15.48px;
+  padding: 2.79px 10.5px;
+}
+
+/* .item-btn:hover {
+  color: rgba(255, 255, 255, 1);
+  background: linear-gradient(136.66deg, #00a5ee 1.58%, #14d7d1 96.24%);
+} */

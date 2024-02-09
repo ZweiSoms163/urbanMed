@@ -73,9 +73,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
-
   width: 600px;
-
   border-radius: 16px;
 }
 
@@ -91,20 +89,18 @@
   display: flex;
   flex-direction: column;
 }
-.AddPerson-input-group input {
+.AddPerson-input {
   border: none;
   outline: 0;
   border-bottom: 1px solid #e5e5ea;
-  margin-bottom: 33px;
   font-size: 16px;
   color: #000000;
   line-height: 22px;
+  margin-bottom: 16px;
 }
 
-.AddPerson-input-group input  {
-  
+.AddPerson-input.error {
   border-bottom: 1px solid rgba(255, 0, 0, 1);
- 
 }
 .AddPerson-placeholder {
   color: #aeaeb2;
@@ -158,7 +154,7 @@
   cursor: pointer;
   border: none;
   outline: none;
-  margin-right: 16px;
+  margin: 16px 16px 24px 0px;
   padding: 11px 20px;
   border-radius: 8px;
   font-weight: 500;
@@ -168,5 +164,10 @@
   background: linear-gradient(136.66deg, #00a5ee 1.58%, #14d7d1 96.24%);
   max-width: 600px;
   width: 100%;
-  margin-bottom: 24px;
+}
+.AddPerson-errorMes {
+  font-size: 13px;
+  line-height: 13px;
+  color: rgba(255, 0, 0, 1);
+  margin-bottom: 16px;
 }

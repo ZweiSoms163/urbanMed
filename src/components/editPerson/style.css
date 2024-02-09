@@ -66,7 +66,7 @@
     transform: translate(-50%, 90%);
   }
 }
-.AddPerson {
+.EditPerson {
   padding: 0 24px;
   position: fixed;
   top: 50%;
@@ -79,19 +79,19 @@
   border-radius: 16px;
 }
 
-.AddPerson-head {
+.EditPerson-head {
   display: flex;
   justify-content: space-between;
   margin: 24px 0px;
 }
-.AddPerson-close {
+.EditPerson-close {
   cursor: pointer;
 }
-.AddPerson-input-group {
+.EditPerson-input-group {
   display: flex;
   flex-direction: column;
 }
-.AddPerson-input-group input {
+.EditPerson-input-group input {
   border: none;
   outline: 0;
   border-bottom: 1px solid #e5e5ea;
@@ -100,7 +100,7 @@
   color: #000000;
   line-height: 22px;
 }
-.AddPerson-placeholder {
+.EditPerson-placeholder {
   color: #aeaeb2;
   font-size: 13px;
   padding-bottom: 4px;
@@ -108,7 +108,7 @@
   line-height: 13px;
 }
 
-.AddPerson-btn-group {
+.EditPerson-btn-group {
   text-align: center;
   border-radius: 10px;
   padding: 3px;
@@ -122,13 +122,13 @@
   margin-bottom: 25px;
 }
 
-.AddPerson-toggle-switch__radio {
+.EditPerson-toggle-switch__radio {
   position: absolute;
   z-index: -1;
   opacity: 0;
 }
 
-.AddPerson-toggle-switch__label {
+.EditPerson-toggle-switch__label {
   display: inline-flex;
   padding: 6px 50px;
   user-select: none;
@@ -136,19 +136,19 @@
   cursor: pointer;
 }
 
-.AddPerson-toggle-switch__option:first-child .AddPerson-toggle-switch__label {
+.EditPerson-toggle-switch__option:first-child .EditPerson-toggle-switch__label {
   border-radius: 8px;
 }
 
-.AddPerson-toggle-switch__option:last-child .AddPerson-toggle-switch__label {
+.EditPerson-toggle-switch__option:last-child .EditPerson-toggle-switch__label {
   border-radius: 8px;
 }
 
-.AddPerson-toggle-switch__radio:checked + .AddPerson-toggle-switch__label {
+.EditPerson-toggle-switch__radio:checked + .EditPerson-toggle-switch__label {
   color: #000000;
   background-color: #ffffff;
 }
-.AddPerson-saveBtn {
+.EditPerson-saveBtn {
   cursor: pointer;
   border: none;
   outline: none;
@@ -164,10 +164,10 @@
   width: 100%;
   margin-bottom: 24px;
 }
-.AddPerson-control-btn {
+.EditPerson-control-btn {
   display: flex;
 }
-.AddPerson-deleteBtn {
+.EditPerson-deleteBtn {
   cursor: pointer;
   border: none;
   outline: none;
