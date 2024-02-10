@@ -1,7 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { ModalState, User } from '../types';
-import { saveUsersToLocalStorage } from '../untils/localStorage';
-
+import { saveUsersToLocalStorage } from '../../untils/localStorage';
 
 const initialState: ModalState = {
   isModalOpen: false,
@@ -9,7 +8,7 @@ const initialState: ModalState = {
     lastName: '',
     firstName: '',
     email: '',
-    gender: '', 
+    gender: '',
   },
   errors: {
     lastName: '',
@@ -21,7 +20,7 @@ const initialState: ModalState = {
 };
 const AddPersonSlice = createSlice({
   name: 'AddPersonSlice',
-   initialState,   
+  initialState,
   reducers: {
     openModal: (state) => {
       state.isModalOpen = true;
@@ -40,12 +39,12 @@ const AddPersonSlice = createSlice({
 
     //вынести функционал манипуляций над пользователем в одтдельный слайс по завершению доработки
 
-     addUser: (state, action) => {
+    addUser: (state, action) => {
       const { gender } = action.payload;
       const newUser: User = {
         gender,
         name: {
-          title: '', 
+          title: '',
           first: state.formData.firstName,
           last: state.formData.lastName,
         },
@@ -55,26 +54,19 @@ const AddPersonSlice = createSlice({
       state.users.push(newUser);
       state.currentGender = gender;
     },
-    
-    // addUserToUserList: (state, action: PayloadAction<User>) => {
-    //   state.users.push(action.payload);      
-    //   console.log('Updated user list:', [...state.users]);
-    // },
     addUserToUserList: (state, action: PayloadAction<User>) => {
-      state.users.push(action.payload);      
-      console.log('Updated user list:', [...state.users]);
-      saveUsersToLocalStorage(state.users); // Сохранение пользователей в локальное хранилище
-      console.log('localSt' + saveUsersToLocalStorage(state.users));
-      addUserToUserList(action.payload);
-    }, // это я добавил, записывается в localStorage, но не отображается в таблице, подумать как решить
+      state.users.push(action.payload);
+      saveUsersToLocalStorage(state.users);
+    },
   },
 });
 
-export const { openModal, closeModal, updateFormData, updateFormErrors,addUser, addUserToUserList  } = AddPersonSlice.actions;
+export const {
+  openModal,
+  closeModal,
+  updateFormData,
+  updateFormErrors,
+  addUser,
+  addUserToUserList,
+} = AddPersonSlice.actions;
 export default AddPersonSlice.reducer;
-
-
-
-
-
-

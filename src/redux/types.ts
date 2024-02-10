@@ -3,7 +3,7 @@ export interface ModalState {
     lastName: string;
     firstName: string;
     email: string;
-    gender: string; 
+    gender: string;
   };
   errors: {
     lastName: string;
@@ -11,9 +11,8 @@ export interface ModalState {
     email: string;
   };
   isModalOpen: boolean;
-  users: User[]; 
-  currentGender: '',
-
+  users: User[];
+  currentGender: '';
 }
 
 export interface Name {
@@ -29,5 +28,5 @@ export interface User {
     last: string;
   };
   email: string;
-  isNew: boolean 
+  isNew: boolean;
 }

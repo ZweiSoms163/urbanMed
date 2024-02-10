@@ -1,10 +1,10 @@
-import "./App.css";
-import Authorization from "./components/authorization";
-import Main from "./components/main";
-import AddPeson from "./components/addPerson";
-import EditPerson from "./components/editPerson";
+import './App.css';
+import Authorization from './components/authorization';
+import Main from './components/main';
+import AddPeson from './components/addPerson';
+import EditPerson from './components/editPerson';
 
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes } from 'react-router-dom';
 function App() {
   return (
     <div className="App">

@@ -1,11 +1,11 @@
-import { selectUserList } from "../../redux/slices/UserSlice";
-import "./style.css";
-import { useSelector } from "react-redux";
+import { selectUserList } from '../../redux/slices/UserSlice';
+import './style.css';
+import { useSelector } from 'react-redux';
 
 export default function Item() {
   const userList = useSelector(selectUserList);
 
-  console.log("Current user list:", userList);
+  console.log('Current user list:', userList);
 
   return (
     <>
