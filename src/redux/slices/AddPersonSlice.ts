@@ -4,6 +4,8 @@
 
 // const initialState: ModalState = {
 //   isModalOpen: false,
+//   isEditModalOpen: false,
+//   editingUser: null,
 //   formData: {
 //     lastName: '',
 //     firstName: '',
@@ -44,18 +46,54 @@
 //       const newUser: User = {
 //         gender,
 //         name: {
-//           title: '',
 //           first: state.formData.firstName,
 //           last: state.formData.lastName,
 //         },
 //         email: state.formData.email,
 //         isNew: true,
+//         id: '',
 //       };
 //       state.users.push(newUser);
 //       state.currentGender = gender;
 //     },
 //     addUserToUserList: (state, action: PayloadAction<User>) => {
 //       state.users.push(action.payload);
+//       saveUsersToLocalStorage(state.users);
+//     },
+//     // вынести функционал редактирования пользователя
+//     openEditModal: (state, action) => {
+//       state.isEditModalOpen = true;
+//       state.editingUser = action.payload;
+//     },
+//     closeEditModal: (state) => {
+//       state.isEditModalOpen = false;
+//       state.editingUser = null;
+//     },
+//     updateEditormData: (state, action) => {
+//       state.formData = { ...state.formData, ...action.payload };
+//     },
+//     addEditUser: (state, action) => {
+//       const { gender } = action.payload;
+//       const newEditUser: User = {
+//         gender,
+//         name: {
+//           first: '',
+//           last: '',
+//         },
+//         email: '',
+//         isNew: false,
+//         id: '',
+//       };
+//       state.users.push(newEditUser);
+//       state.currentGender = gender;
+//     },
+//     addEditUserToUerList: (state, action: PayloadAction<User>) => {
+//       state.users.push(action.payload);
+//       saveUsersToLocalStorage(state.users);
+//     },
+//     deleteEditUser: (state, action: PayloadAction<string>) => {
+//       const userId = action.payload;
+//       state.users = state.users.filter((user) => user.id.toString() !== userId);
 //       saveUsersToLocalStorage(state.users);
 //     },
 //   },
@@ -68,6 +106,11 @@
 //   updateFormErrors,
 //   addUser,
 //   addUserToUserList,
+//   openEditModal,
+//   closeEditModal,
+//   updateEditormData,
+//   addEditUserToUerList,
+//   deleteEditUser,
 // } = AddPersonSlice.actions;
 // export default AddPersonSlice.reducer;
 
@@ -78,6 +121,7 @@ import { saveUsersToLocalStorage } from '../../untils/localStorage';
 const initialState: ModalState = {
   isModalOpen: false,
   isEditModalOpen: false,
+  editingUser: null,
   formData: {
     lastName: '',
     firstName: '',
@@ -111,14 +155,6 @@ const AddPersonSlice = createSlice({
       state.errors = { ...state.errors, ...action.payload };
     },
 
-    // вынести в слайс с функционалом редактирования пользователя
-    openEditModal: (state) => {
-      state.isEditModalOpen = true;
-    },
-    closeEditModal: (state) => {
-      state.isEditModalOpen = false;
-    },
-
     //вынести функционал манипуляций над пользователем в одтдельный слайс по завершению доработки
 
     addUser: (state, action) => {
@@ -126,18 +162,55 @@ const AddPersonSlice = createSlice({
       const newUser: User = {
         gender,
         name: {
-          title: '',
           first: state.formData.firstName,
           last: state.formData.lastName,
         },
         email: state.formData.email,
         isNew: true,
+        id: '',
       };
       state.users.push(newUser);
       state.currentGender = gender;
     },
     addUserToUserList: (state, action: PayloadAction<User>) => {
+      console.log(action.payload);
       state.users.push(action.payload);
+      saveUsersToLocalStorage(state.users);
+    },
+    // вынести функционал редактирования пользователя
+    openEditModal: (state, action) => {
+      state.isEditModalOpen = true;
+      state.editingUser = action.payload;
+    },
+    closeEditModal: (state) => {
+      state.isEditModalOpen = false;
+      state.editingUser = null;
+    },
+    updateEditormData: (state, action) => {
+      state.formData = { ...state.formData, ...action.payload };
+    },
+    addEditUser: (state, action) => {
+      const { gender } = action.payload;
+      const newEditUser: User = {
+        gender,
+        name: {
+          first: '',
+          last: '',
+        },
+        email: '',
+        isNew: false,
+        id: '',
+      };
+      state.users.push(newEditUser);
+      state.currentGender = gender;
+    },
+    addEditUserToUerList: (state, action: PayloadAction<User>) => {
+      state.users.push(action.payload);
+      saveUsersToLocalStorage(state.users);
+    },
+    deleteEditUser: (state, action: PayloadAction<string>) => {
+      const userId = action.payload;
+      state.users = state.users.filter((user) => user.id.toString() !== userId);
       saveUsersToLocalStorage(state.users);
     },
   },
@@ -152,5 +225,8 @@ export const {
   addUserToUserList,
   openEditModal,
   closeEditModal,
+  updateEditormData,
+  addEditUserToUerList,
+  deleteEditUser,
 } = AddPersonSlice.actions;
 export default AddPersonSlice.reducer;

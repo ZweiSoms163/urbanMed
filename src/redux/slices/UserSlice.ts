@@ -5,6 +5,7 @@ import { User } from '../types';
 import { addUserToUserList } from './AddPersonSlice';
 
 interface UserState {
+  userId: string;
   userList: User[];
   loading: 'idle' | 'loading' | 'succeeded' | 'failed';
   error: string | null | undefined;
@@ -14,6 +15,7 @@ const initialState: UserState = {
   userList: [],
   loading: 'idle',
   error: null,
+  userId: '',
 };
 
 const savedUsers = localStorage.getItem('users');

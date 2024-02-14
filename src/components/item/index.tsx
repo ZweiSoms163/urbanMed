@@ -35,13 +35,14 @@ import { selectUserList } from '../../redux/slices/UserSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { openEditModal, closeEditModal } from '../../redux/slices/AddPersonSlice';
 import './style.css';
+import { User } from '../../redux/types';
 
 export default function Item() {
   const userList = useSelector(selectUserList);
   const dispatch = useDispatch();
 
-  const handleEditClick = () => {
-    dispatch(openEditModal()); // Отправляем действие на открытие модального окна редактирования
+  const handleEditClick = (userList: User) => {
+    dispatch(openEditModal(userList)); // Отправляем действие на открытие модального окна редактирования
   };
   return (
     <>
@@ -54,7 +55,7 @@ export default function Item() {
           <td>{user.email}</td>
           <td>
             {user.isNew ? (
-              <button className="item-btn" onClick={handleEditClick}>
+              <button className="item-btn" onClick={() => handleEditClick(user)}>
                 Редактировать
               </button>
             ) : (

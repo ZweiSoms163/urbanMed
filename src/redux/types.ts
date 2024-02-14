@@ -11,24 +11,24 @@
 //     email: string;
 //   };
 //   isModalOpen: boolean;
+//   isEditModalOpen: boolean;
 //   users: User[];
 //   currentGender: '';
 // }
 // export interface Name {
-//   title: string;
 //   first: string;
 //   last: string;
 // }
 // export interface User {
 //   gender: string;
 //   name: {
-//     title: string;
 //     first: string;
 //     last: string;
 //   };
 //   email: string;
 //   isNew: boolean;
 // }
+
 export interface ModalState {
   formData: {
     lastName: string;
@@ -43,18 +43,18 @@ export interface ModalState {
   };
   isModalOpen: boolean;
   isEditModalOpen: boolean;
+  editingUser: User | null;
   users: User[];
   currentGender: '';
 }
 export interface Name {
-  title: string;
   first: string;
   last: string;
 }
 export interface User {
+  id: string;
   gender: string;
   name: {
-    title: string;
     first: string;
     last: string;
   };
