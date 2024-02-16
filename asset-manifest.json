@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/urbanMed/static/css/main.020bd4e8.css",
+    "main.js": "/urbanMed/static/js/main.75c0748f.js",
+    "index.html": "/urbanMed/index.html",
+    "main.020bd4e8.css.map": "/urbanMed/static/css/main.020bd4e8.css.map",
+    "main.75c0748f.js.map": "/urbanMed/static/js/main.75c0748f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.020bd4e8.css",
+    "static/js/main.75c0748f.js"
+  ]
+}
