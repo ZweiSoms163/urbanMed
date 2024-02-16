@@ -1,3 +1,5 @@
+import { User } from "../redux/types";
+
 export const loadUsersFromLocalStorage = () => {
   const storedUsers = localStorage.getItem('users');
   if (storedUsers) {
@@ -6,6 +8,9 @@ export const loadUsersFromLocalStorage = () => {
   return [];
 };
 
-export const saveUsersToLocalStorage = (users: any) => {
+export const saveUsersToLocalStorage = (users: User[]) => {
   localStorage.setItem('users', JSON.stringify(users));
 };
+
+
+

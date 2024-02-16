@@ -2,7 +2,8 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { RootState } from '../store';
 import { User } from '../types';
-import { addUserToUserList } from './AddPersonSlice';
+import { addEditUserToUserList, addUserToUserList, deleteEditUser } from './AddPersonSlice';
+import { saveUsersToLocalStorage } from '../../untils/localStorage';
 
 interface UserState {
   userId: string;
@@ -66,7 +67,30 @@ const userSlice = createSlice({
       })
       .addCase(addUserToUserList, (state, action) => {
         state.userList.unshift(action.payload);
-      });
+      })
+      .addCase(addEditUserToUserList, (state, action) => {
+        const editedUser = action.payload;
+        const index = state.userList.findIndex(user => user.id === editedUser.id);
+        if (index !== -1) {
+          state.userList[index] = editedUser;
+          if (editedUser.isNew) {
+            saveUsersToLocalStorage(state.userList.filter(user => user.isNew));
+          }
+        } else {
+          console.log('Пользователь не найден');
+        }
+      })
+      .addCase(deleteEditUser, (state, action) => {
+        const userId = action.payload;
+        state.userList = state.userList.filter(user => {
+          if (user.id === userId) {
+            return !user.isNew;
+          }
+          return true;
+        }); 
+        const usersToSave = state.userList.filter(user => user.isNew);
+        saveUsersToLocalStorage(usersToSave); 
+      })
   },
 });
 
@@ -75,3 +99,5 @@ export const selectUserLoadingStatus = (state: RootState) => state.users.loading
 export const selectUserError = (state: RootState) => state.users.error;
 export const { removeAllUsers } = userSlice.actions;
 export default userSlice.reducer;
+
+

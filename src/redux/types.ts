@@ -1,34 +1,3 @@
-// export interface ModalState {
-//   formData: {
-//     lastName: string;
-//     firstName: string;
-//     email: string;
-//     gender: string;
-//   };
-//   errors: {
-//     lastName: string;
-//     firstName: string;
-//     email: string;
-//   };
-//   isModalOpen: boolean;
-//   isEditModalOpen: boolean;
-//   users: User[];
-//   currentGender: '';
-// }
-// export interface Name {
-//   first: string;
-//   last: string;
-// }
-// export interface User {
-//   gender: string;
-//   name: {
-//     first: string;
-//     last: string;
-//   };
-//   email: string;
-//   isNew: boolean;
-// }
-
 export interface ModalState {
   formData: {
     lastName: string;
